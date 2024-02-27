@@ -7,7 +7,7 @@ echo 'installing git'
 sudo apt install git -y
 
 echo "What name do you want to use in GIT user.name?"
-echo "For example, mine will be \"Erick Wendel\""
+echo "For example, mine will be \"supertgo\""
 read git_config_user_name
 git config --global user.name "$git_config_user_name"
 clear 
