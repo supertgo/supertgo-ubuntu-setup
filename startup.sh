@@ -26,24 +26,24 @@ else
 	echo "Okay, no problem. :) Let's move on!"
 fi
 
+echo 'installing tool to handle clipboard via CLI'
+sudo apt-get install xclip -y
+
 echo "Generating Github a SSH Key"
 ssh-keygen -t ed25519 -C $git_config_user_email
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
-cat ~/.ssh/id_ed255519.pub | xclip -selection clipboard
+cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
+echo "Ssh key coppied, you can paste it in Github"
 
 echo 'installing zsh'
 sudo apt-get install zsh -y
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 chsh -s /bin/zsh
 
-echo 'installing tool to handle clipboard via CLI'
-sudo apt-get install xclip -y
-
 export alias pbcopy='xclip -selection clipboard'
 export alias pbpaste='xclip -selection clipboard -o'
 source ~/.zshrc
-
 
 echo 'installing autosuggestions' 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
